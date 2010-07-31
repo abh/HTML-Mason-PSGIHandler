@@ -3,6 +3,7 @@ name 'HTML-Mason-PSGIHandler';
 all_from 'lib/HTML/Mason/PSGIHandler.pm';
 
 requires 'HTML::Mason';
+requires 'CGI::PSGI';
 
 build_requires 'Test::More';
 test_requires 'Plack::Test';
