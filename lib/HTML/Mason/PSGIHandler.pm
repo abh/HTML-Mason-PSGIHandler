@@ -116,9 +116,25 @@ HTML::Mason::PSGIHandler is a PSGI handler for HTML::Mason. It's based
 on HTML::Mason::CGIHandler and allows you to process Mason templates on
 any web servers that support PSGI.
 
-=head1 AUTHOR
+=head1 SUPPORT
 
-Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>
+=over 4
+
+=item * Git Repository
+
+The latest code is available from the git repository at
+L<http://github.com/abh/HTML-Mason-PSGIHandler>.
+
+To send patches, make a fork on github and send a pull request.
+
+=item * Bugs
+
+Please report bugs at L<http://github.com/abh/HTML-Mason-PSGIHandler/issues>.
+
+=head1 AUTHORS
+
+Ask Bjørn Hansen E<lt>miyagawa@bulknews.netE<gt>, Ricardo Signes E<lt>rjbs@cpan.orgE<gt>,
+Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>.
 
 =head1 LICENSE
 
