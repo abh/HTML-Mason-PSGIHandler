@@ -1,8 +1,6 @@
 package HTML::Mason::PSGIHandler;
-
 use strict;
 use 5.008_001;
-our $VERSION = '0.01';
 
 use base qw( HTML::Mason::CGIHandler );
 use CGI::PSGI;
@@ -130,6 +128,8 @@ To send patches, make a fork on github and send a pull request.
 =item * Bugs
 
 Please report bugs at L<http://github.com/abh/HTML-Mason-PSGIHandler/issues>.
+
+=back
 
 =head1 AUTHORS
 
