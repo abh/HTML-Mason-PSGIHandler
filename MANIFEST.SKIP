@@ -2,7 +2,6 @@
 \bCVS\b
 \.svn/
 \.git/
-^MANIFEST\.
 ^Makefile$
 ~$
 \.old$
@@ -11,4 +10,4 @@
 ^MakeMaker-\d
 \.gz$
 \.cvsignore
-\.shipit
+
