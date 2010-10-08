@@ -43,7 +43,7 @@ sub handle_psgi {
 
     die if $@;
 
-    return [ $r->psgi_header, [ $output ] ];
+    return [ $r->psgi_header, [ defined $output ? $output : () ] ];
 }
 
 sub HTML::Mason::FakeApache::psgi_header {
