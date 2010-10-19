@@ -30,6 +30,14 @@ sub handle_psgi {
     $self->interp->out_method( \$output );
     $self->interp->delayed_object_params('request', cgi_request => $r);
 
+    my @result = $self->invoke_mason($r, $p);
+    die if $@;
+
+    return [ $r->psgi_header(-Status => $result[0]), [ defined $output ? $output : () ] ];
+}
+
+sub invoke_mason {
+    my ($self, $r, $p) = @_;
     my %args = $self->request_args($r);
 
     my @result;
@@ -41,9 +49,7 @@ sub handle_psgi {
         eval { $self->interp->exec($p->{comp}, %args) };
     }
 
-    die if $@;
-
-    return [ $r->psgi_header(-Status => $result[0]), [ defined $output ? $output : () ] ];
+    return @result;
 }
 
 sub HTML::Mason::FakeApache::psgi_header {
