@@ -49,7 +49,7 @@ sub handle_psgi {
         my @result = $self->invoke_mason($r, $p);
         die if $@; # XXX: format 500?
         unless ($writer) {
-            return $responder->([$r->psgi_header(), []]);
+            return $responder->([$r->psgi_header(-Status => $result[0]), []]);
         }
         undef $responder;
         $writer->close();
