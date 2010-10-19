@@ -43,7 +43,7 @@ sub handle_psgi {
 
     die if $@;
 
-    return [ $r->psgi_header, [ defined $output ? $output : () ] ];
+    return [ $r->psgi_header(-Status => $result[0]), [ defined $output ? $output : () ] ];
 }
 
 sub HTML::Mason::FakeApache::psgi_header {
@@ -51,7 +51,7 @@ sub HTML::Mason::FakeApache::psgi_header {
     my $h = $self->headers_out;
     my $e = $self->err_headers_out;
 
-    my %args = (tied(%$h)->cgi_headers, tied(%$e)->cgi_headers);
+    my %args = (tied(%$h)->cgi_headers, tied(%$e)->cgi_headers, @_);
     if (exists $h->{Location}) {
         %args = (%args, -Status => 302);
     }
