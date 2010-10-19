@@ -1,6 +1,8 @@
 Revision history for HTML-Mason-PSGIHandler
 
 {{$NEXT}}
+
+0.51  October 18, 2010
   - For body-less response, don't return an undef body element (Chia-liang Kao)
   - Pass Mason -Status into psgi_header (Shawn M Moore)
 
