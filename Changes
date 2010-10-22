@@ -1,6 +1,7 @@
 Revision history for HTML-Mason-PSGIHandler
 
 {{$NEXT}}
+  - Add streaming handler, HTML::Mason::PSGIHandler::Streamy. (Chia-liang Kao)
 
 0.51  October 18, 2010
   - For body-less response, don't return an undef body element (Chia-liang Kao)
