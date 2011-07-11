@@ -130,6 +130,23 @@ HTML::Mason::PSGIHandler is a PSGI handler for HTML::Mason. It's based
 on HTML::Mason::CGIHandler and allows you to process Mason templates on
 any web servers that support PSGI.
 
+=head1 METHODS
+
+=head1 as_psgi
+
+  my $app = $h->as_psgi;
+
+This method returns a subroutine to be used as a PSGI application, exactly as
+shown in the SYNOPSIS.
+
+=head2 new_psgi
+
+  mount '/foo' => HTML::Mason::PSGIHandler->new_psgi( ... );
+
+This method combines C<new> and C<as_psgi> to immediately return a subroutine
+that can be used as a PSGI application.  It's useful for using inline with
+L<Plack::Builder>.
+
 =head1 SUPPORT
 
 =over 4
