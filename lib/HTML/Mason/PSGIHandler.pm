@@ -14,6 +14,16 @@ sub new {
     );
 }
 
+sub as_psgi {
+    my $self = shift;
+    return sub { $self->handle_psgi( $_[0] ) };
+}
+
+sub new_psgi {
+    my $class = shift;
+    $class->new(@_)->as_psgi;
+}
+
 sub handle_psgi {
     my $self = shift;
     my $env  = shift;
