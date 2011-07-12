@@ -134,10 +134,16 @@ any web servers that support PSGI.
 
 =head1 as_psgi
 
-  my $app = $h->as_psgi;
+This method returns a subroutine to be used as a PSGI application.
 
-This method returns a subroutine to be used as a PSGI application, exactly as
-shown in the SYNOPSIS.
+In other words, these are equivalent:
+
+  my $app = sub {
+    my $env = shift;
+    $h->handle_psgi($env);
+  };
+
+  my $app = $h->as_psgi;
 
 =head2 new_psgi
 
