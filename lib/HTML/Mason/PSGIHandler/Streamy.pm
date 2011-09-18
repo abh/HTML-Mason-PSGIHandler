@@ -46,7 +46,7 @@ sub handle_psgi {
 
     return sub {
         $responder = shift;
-        my @result = $self->invoke_mason($r, $p);
+        my @result = $self->invoke_mason(\%args, $p);
         die if $@; # XXX: format 500?
         unless ($writer) {
             return $responder->([$r->psgi_header(-Status => $result[0]), []]);

@@ -30,23 +30,24 @@ sub handle_psgi {
     $self->interp->out_method( \$output );
     $self->interp->delayed_object_params('request', cgi_request => $r);
 
-    my @result = $self->invoke_mason($r, $p);
+    my %args = $self->request_args($r);
+
+    my @result = $self->invoke_mason(\%args, $p);
     die if $@;
 
     return [ $r->psgi_header(-Status => $result[0]), [ defined $output ? $output : () ] ];
 }
 
 sub invoke_mason {
-    my ($self, $r, $p) = @_;
-    my %args = $self->request_args($r);
+    my ($self, $args, $p) = @_;
 
     my @result;
     if (wantarray) {
-        @result = eval { $self->interp->exec($p->{comp}, %args) };
+        @result = eval { $self->interp->exec($p->{comp}, %$args) };
     } elsif ( defined wantarray ) {
-        $result[0] = eval { $self->interp->exec($p->{comp}, %args) };
+        $result[0] = eval { $self->interp->exec($p->{comp}, %$args) };
     } else {
-        eval { $self->interp->exec($p->{comp}, %args) };
+        eval { $self->interp->exec($p->{comp}, %$args) };
     }
 
     return @result;
