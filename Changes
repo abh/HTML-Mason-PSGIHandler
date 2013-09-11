@@ -2,6 +2,8 @@ Revision history for HTML-Mason-PSGIHandler
 
 {{$NEXT}}
   - Add new_psgi and as_psgi methods (Ricardo Signes)
+  - Fix memory leak (under certain conditions)
+  - basic test for leaks
 
 0.52  October 22, 2010
   - Add streaming handler, HTML::Mason::PSGIHandler::Streamy. (Chia-liang Kao)
