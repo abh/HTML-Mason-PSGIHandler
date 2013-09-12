@@ -53,6 +53,7 @@ sub handle_psgi {
         }
         undef $responder;
         $writer->close();
+        undef $writer;
     }
 
 }
