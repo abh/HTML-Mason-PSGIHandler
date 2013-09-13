@@ -1,6 +1,8 @@
 Revision history for HTML-Mason-PSGIHandler
 
 {{$NEXT}}
+
+0.53  September 13, 2013
   - Add new_psgi and as_psgi methods (Ricardo Signes)
   - Fix memory leak (under certain conditions)
   - basic test for leaks
