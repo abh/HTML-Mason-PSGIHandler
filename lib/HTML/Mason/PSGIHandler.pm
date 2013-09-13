@@ -174,7 +174,7 @@ Please report bugs at L<http://github.com/abh/HTML-Mason-PSGIHandler/issues>.
 =head1 AUTHORS
 
 Ask Bjørn Hansen E<lt>miyagawa@bulknews.netE<gt>, Ricardo Signes E<lt>rjbs@cpan.orgE<gt>,
-Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>.
+Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>, Ruslan Zakirov E<lt>ruz@bestpractical.comE<gt>.
 
 =head1 LICENSE
 
