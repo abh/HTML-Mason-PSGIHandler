@@ -30,7 +30,10 @@ sub handle_psgi {
 
     my $p = {
         comp => $env->{PATH_INFO},
-        cgi  => CGI::PSGI->new($env),
+        cgi  => do {
+            local $ENV{QUERY_STRING} = $env->{QUERY_STRING};
+            CGI::PSGI->new($env);
+        },
     };
 
     my $r = $self->create_delayed_object('cgi_request', cgi => $p->{cgi});
